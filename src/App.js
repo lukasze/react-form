@@ -9,19 +9,19 @@ import { BrowserRouter, Route } from 'react-router-dom';
 function App() {
   return (
     <BrowserRouter>
-    <div className="App">
-      <div>
-        <h3>React CRUD</h3>
+      <div className="App">
+        <div>
+          <h3>React CRUD</h3>
+        </div>
+        <div>
+          <Route exact path="/" component={Create} />
+        </div>
+        <div style={{ marginTop: 25 }}>
+          <Route exact path="/read" component={Read} />
+        </div>
+        <Route path="/update" component={Update} />
+        <Route path="/delete" component={Delete} />
       </div>
-      <div>
-        <Route exact path="/" component={Create}/>
-      </div>
-      <div style={{ marginTop: 25 }}>
-        <Route exact path="/read" component={Read}/>
-      </div>
-    </div>
-    <Route path="/update" component={Update}/>
-    <Route path="/delete" component={Delete}/>
     </BrowserRouter>
   );
 }

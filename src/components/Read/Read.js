@@ -17,9 +17,11 @@ function Read() {
 
   }
 
-  function setId (id) {
-    console.log(id);
-    localStorage.setItem("Id", id);
+  function setFirstNameAndLastNameInLocalStorage (data) {
+    console.log(data.id + ' ' + data.firstName + ' ' + data.lastName);
+    localStorage.setItem("id", data.id);
+    localStorage.setItem("firstName", data.firstName);
+    localStorage.setItem("lastName", data.lastName);
   }
 
 
@@ -48,16 +50,16 @@ function Read() {
               return (
                 <Table.Row>
                   <Table.Cell>{data.id}</Table.Cell>
-                  <Table.Cell>{data.name}</Table.Cell>
+                  <Table.Cell>{data.firstName}</Table.Cell>
                   <Table.Cell>{data.lastName}</Table.Cell>
                   <Table.Cell>
                     <Link to="/update">
-                      <Button color="green" onClick={() => setId(data.id)}>Update</Button>
+                      <Button color="green" onClick={() => setFirstNameAndLastNameInLocalStorage(data)}>Update</Button>
                     </Link>
                   </Table.Cell>
                   <Table.Cell>
                     <Link to="/delete">
-                      <Button color="red" onClick={() => setId(data.id)}>Delete</Button>
+                      <Button color="red" onClick={() => setFirstNameAndLastNameInLocalStorage(data)}>Delete</Button>
                     </Link>
                   </Table.Cell>
                 </Table.Row>
