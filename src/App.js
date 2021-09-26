@@ -6,9 +6,15 @@ import Read from './components/Read/Read';
 function App() {
   return (
     <div className="App">
-      <h3>React CRUD</h3>
-      <Create />
-      <Read />
+      <div>
+        <h3>React CRUD</h3>
+      </div>
+      <div>
+        <Create />
+      </div>
+      <div style={{ marginTop: 25 }}>
+        <Read />
+      </div>
     </div>
   );
 }
