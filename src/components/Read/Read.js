@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { Icon, Label, Menu, Table } from 'semantic-ui-react'
+import { Button, Table } from 'semantic-ui-react'
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 function Read() {
   const [tableData, setTableData] = useState([]);
@@ -28,6 +29,8 @@ function Read() {
             <Table.HeaderCell>ID</Table.HeaderCell>
             <Table.HeaderCell>Name</Table.HeaderCell>
             <Table.HeaderCell>Last Name</Table.HeaderCell>
+            <Table.HeaderCell>Update</Table.HeaderCell>
+            <Table.HeaderCell>Delete</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
@@ -39,6 +42,16 @@ function Read() {
                   <Table.Cell>{data.id}</Table.Cell>
                   <Table.Cell>{data.name}</Table.Cell>
                   <Table.Cell>{data.lastName}</Table.Cell>
+                  <Table.Cell>
+                    <Link to="/update">
+                      <Button color="green">Update</Button>
+                    </Link>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Link to="/delete">
+                      <Button color="red">Delete</Button>
+                    </Link>
+                  </Table.Cell>
                 </Table.Row>
               )
             }
