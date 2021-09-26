@@ -3,7 +3,6 @@ import './App.css';
 import Create from './components/Create/Create';
 import Read from './components/Read/Read';
 import Update from './components/Update/Update';
-import Delete from './components/Delete/Delete';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
           <Route exact path="/read" component={Read} />
         </div>
         <Route path="/update" component={Update} />
-        <Route path="/delete" component={Delete} />
       </div>
     </BrowserRouter>
   );

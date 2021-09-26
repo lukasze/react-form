@@ -24,6 +24,16 @@ function Read() {
     localStorage.setItem("lastName", data.lastName);
   }
 
+  const onDelete = (id) => {
+    const endpointURL = `https://614f39dcb4f6d30017b484f4.mockapi.io/api/v1/people/${id}`;
+    axios.delete(endpointURL)
+      .then(() => callMockApiWithAxiosGET())
+      .catch(
+        (err) => { console.log(err) }
+      );
+
+  }
+
 
   useEffect(() => {
     callMockApiWithAxiosGET();
@@ -58,9 +68,7 @@ function Read() {
                     </Link>
                   </Table.Cell>
                   <Table.Cell>
-                    <Link to="/delete">
-                      <Button color="red" onClick={() => setFirstNameAndLastNameInLocalStorage(data)}>Delete</Button>
-                    </Link>
+                      <Button color="red" onClick={() => onDelete(data.id)}>Delete</Button>
                   </Table.Cell>
                 </Table.Row>
               )
