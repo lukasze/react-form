@@ -17,9 +17,17 @@ function Read() {
 
   }
 
+  function setId (id) {
+    console.log(id);
+    localStorage.setItem("Id", id);
+  }
+
+
   useEffect(() => {
     callMockApiWithAxiosGET();
   }, []);
+
+
 
   return (
     <div>
@@ -44,12 +52,12 @@ function Read() {
                   <Table.Cell>{data.lastName}</Table.Cell>
                   <Table.Cell>
                     <Link to="/update">
-                      <Button color="green">Update</Button>
+                      <Button color="green" onClick={() => setId(data.id)}>Update</Button>
                     </Link>
                   </Table.Cell>
                   <Table.Cell>
                     <Link to="/delete">
-                      <Button color="red">Delete</Button>
+                      <Button color="red" onClick={() => setId(data.id)}>Delete</Button>
                     </Link>
                   </Table.Cell>
                 </Table.Row>
