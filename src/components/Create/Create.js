@@ -4,9 +4,10 @@ import { Button, Form } from 'semantic-ui-react'
 function Create() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const callMockAPI = ()=>{
+  const callMockAPI = () => {
     console.log(firstName + ' ' + lastName);
   }
+
   return (
     <div>
       <Form>
