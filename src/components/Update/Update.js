@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Form } from 'semantic-ui-react'
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 function Update() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [id, setId] = useState(null);
+  let history = useHistory();
 
-  function callMockApiWithAxiosPOST() {
+  function callMockApiWithAxiosPUT() {
 
     const formData = {
       firstName,
@@ -17,7 +19,7 @@ function Update() {
 
     const endpointURL = `https://614f39dcb4f6d30017b484f4.mockapi.io/api/v1/people/${id}`;
     axios.put(endpointURL, formData)
-      .then(response => console.log(response.data))
+      .then(() => history.push("/read"))
       .catch(
         (err) => { console.log(err) }
       );
@@ -49,7 +51,7 @@ function Update() {
             placeholder='Last Name'
             value={lastName} />
         </Form.Field>
-        <Button type='submit' onClick={callMockApiWithAxiosPOST}>Update</Button>
+        <Button type='submit' onClick={callMockApiWithAxiosPUT}>Update</Button>
       </Form>
     </div>
   )

@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { Button, Form } from 'semantic-ui-react'
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 function Create() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  let history = useHistory();
 
   function callMockApiWithAxiosPOST() {
 
@@ -15,7 +17,7 @@ function Create() {
 
     const endpointURL = "https://614f39dcb4f6d30017b484f4.mockapi.io/api/v1/people";
     axios.post(endpointURL, formData)
-      .then(response => console.log(response.data))
+      .then(() => history.push("/read"))
       .catch(
         (err) => { console.log(err) }
       );
